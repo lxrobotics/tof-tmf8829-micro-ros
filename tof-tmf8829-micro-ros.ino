@@ -50,12 +50,20 @@ void on_tmf8829_data(
   uint8_t const * data,
   uint16_t const len)
 {
-  Serial.print(millis());
-  Serial.print(" on_tmf8829_data: ");
+  char msg_header[64] = {0};
+  snprintf(msg_header, sizeof(msg_header), "[%ld] on_tmf8829_data (len = %d): ", millis(), len);
+  Serial.print(msg_header);
 
-  for ( uint16_t cnt = 0 ; cnt < len ; cnt ++ )
+  uint16_t const PIXEL_DATA_SIZE = 3;
+
+  for ( uint16_t cnt = 0 ; cnt < len ; cnt += PIXEL_DATA_SIZE )
   {
-    Serial.print(static_cast<int>(data[cnt]));
+    uint16_t const * raw_distance_ptr = (uint16_t const *)(data + cnt);
+    uint16_t const   raw_distance = *raw_distance_ptr;
+    float    const   distance = raw_distance * 0.25f;
+    uint16_t const   distance_int = static_cast<uint16_t>(distance);
+
+    Serial.print(distance_int);
     Serial.print(", ");
   }
 
