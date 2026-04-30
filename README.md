@@ -1,4 +1,4 @@
-:floppy_disc: `tof-tmf8829-micro-ros`
+:floppy_disk: `tof-tmf8829-micro-ros`
 =====================================
 
 Arduino sketch for interfacing a TMF8829 ToF sensor with ROS.
