@@ -13,9 +13,15 @@
  * DEFINE
  **************************************************************************************/
 
-//#define UART_BAUD_RATE              115200
-#define UART_BAUD_RATE              2000000
 #define I2C_CLK_SPEED               400000
+
+/**************************************************************************************
+ * FUNCTION DECLARATION
+ **************************************************************************************/
+
+void on_tmf8829_data(
+  uint8_t const * data,
+  uint16_t const len);
 
 /**************************************************************************************
  * SETUP/LOOP
@@ -23,10 +29,35 @@
 
 void setup()
 {
-  setupFn( 2 /* log-level nr*/, UART_BAUD_RATE, I2C_CLK_SPEED );
+  Serial.begin(115200);
+  while(!Serial) { }
+  
+  tmf8829_setupFn( 2 /* log-level nr*/, I2C_CLK_SPEED );
+  tmf8829_enable();
+  tmf8829_start_measurements();
 }
 
 void loop()
 {
-  loopFn( );
+  tmf8829_loopFn(on_tmf8829_data);
+}
+
+/**************************************************************************************
+ * FUNCTION DEFINITION
+ **************************************************************************************/
+
+void on_tmf8829_data(
+  uint8_t const * data,
+  uint16_t const len)
+{
+  Serial.print(millis());
+  Serial.print(" on_tmf8829_data: ");
+
+  for ( uint16_t cnt = 0 ; cnt < len ; cnt ++ )
+  {
+    Serial.print(static_cast<int>(data[cnt]));
+    Serial.print(", ");
+  }
+
+  Serial.println();
 }
