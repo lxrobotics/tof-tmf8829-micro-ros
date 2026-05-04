@@ -10,7 +10,7 @@ Arduino sketch for interfacing a TMF8829 ToF sensor with ROS.
 
 ### How-to-compile/upload
 ```bash
-git clone https://github.com/lxrobotics/tof-tmf8829-micro-ros
+git clone --recursive https://github.com/lxrobotics/tof-tmf8829-micro-ros
 arduino-cli compile --fqbn arduino:renesas_uno:minima tof-tmf8829-micro-ros -u -p /dev/ttyACM0
 ```
 
