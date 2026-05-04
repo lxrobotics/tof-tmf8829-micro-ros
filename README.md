@@ -1,7 +1,12 @@
+<a href="https://lxrobotics.com/"><img align="right" src="https://raw.githubusercontent.com/lxrobotics/.github/main/logo/lxrobotics.png" width="15%"></a>
 :floppy_disk: `tof-tmf8829-micro-ros`
 =====================================
 
 Arduino sketch for interfacing a TMF8829 ToF sensor with ROS.
+
+### Required hardware
+* 1 x Arduino [Uno R4 Minima](https://docs.arduino.cc/hardware/uno-r4-minima/)
+* 1 x AMS [TMF8829_EVM_EB_SHIELD](https://ams-osram.com/de/products/boards-kits-accessories/kits/ams-tmf8829-evm-eb-shield-evaluation-kit)
 
 ### How-to-compile/upload
 ```bash
