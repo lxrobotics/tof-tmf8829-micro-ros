@@ -4,6 +4,9 @@
 
 Arduino sketch for interfacing a TMF8829 ToF sensor with ROS.
 
+Blog post: ["How-to build a ToF sensor for ROS using the AMS TMF8829 and micro-ROS
+"](https://lxrobotics.com/blog/tmf8829-tof-sensor-micro-ros/)
+
 ### Required hardware
 * 1 x Arduino [Uno R4 Minima](https://docs.arduino.cc/hardware/uno-r4-minima/)
 * 1 x AMS [TMF8829_EVM_EB_SHIELD](https://ams-osram.com/de/products/boards-kits-accessories/kits/ams-tmf8829-evm-eb-shield-evaluation-kit)
