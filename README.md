@@ -18,3 +18,10 @@ arduino-cli compile --fqbn arduino:renesas_uno:minima tof-tmf8829-micro-ros -u -
 ```bash
 docker run -it --rm --net=host --device=/dev/ttyACM0 microros/micro-ros-agent:jazzy serial --dev /dev/ttyACM0
 ```
+
+### How-to-visualize using Rviz2
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run rviz2 rviz2 -d tof-tmf8829-micro-ros/config/tmf8829.rviz
+```
+
